@@ -39,3 +39,25 @@ Fix: just change var to let. That's it.
 IIFE = Immediately Invoked Function Expression
 Old school fix before let existed.
 (function(j) { ... })(i)
+
+## Hoisting
+- function declarations → fully hoisted, usable before declaration
+- let/const function expressions → temporal dead zone, NOT hoisted
+- Has NOTHING to do with closures
+
+## this keyword
+
+4 rules in order of priority:
+1. new binding — this = new object
+2. Explicit — call/apply/bind — this = whatever you pass
+3. Implicit — obj.method() — this = obj
+4. Default — just fn() — this = window or undefined(strict)
+
+Arrow functions — NO own this, inherit from outer scope
+Never use arrow functions as object methods if you need this
+
+## call vs apply vs bind
+- call(obj, arg1, arg2) → runs immediately, comma args
+- apply(obj, [arg1, arg2]) → runs immediately, array args  
+- bind(obj, arg1, arg2) → returns new function, runs later
+Memory trick: Call=Comma, Apply=Array, Bind=later
