@@ -61,3 +61,14 @@ Never use arrow functions as object methods if you need this
 - apply(obj, [arg1, arg2]) → runs immediately, array args  
 - bind(obj, arg1, arg2) → returns new function, runs later
 Memory trick: Call=Comma, Apply=Array, Bind=later
+
+## async/await
+
+- await pauses ONLY the async function, not the whole program
+- code OUTSIDE continues running while await waits
+- async function ALWAYS returns a Promise
+- sequential await = slow, use Promise.all for parallel ops
+
+Classic trick question order:
+outer code → async start → hits await → 
+outer continues → await resolves → async continues
